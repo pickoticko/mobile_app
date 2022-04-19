@@ -6,6 +6,8 @@ const kSecondaryColor = Color(0xffeeeeee);
 const kDefaultBorderRadius = 9.0;
 const kLoginPageDefaultPadding = 30.0;
 
+enum Pages { Login, Main, Details }
+
 // Login Page Constants
 const kLoginLogoText = 'Welcome!\nLogin to account';
 const kLoginTextFieldBorderColor = Colors.black;
@@ -13,7 +15,7 @@ const kLoginButtonColor = Colors.black;
 const kLoginButtonHeight = 60.0;
 const kLoginButtonText = 'Login';
 
-const kLoginTextFieldFillColor = Color(0xfff5f5f5);
+const kLoginTextFieldFillColor = Colors.white;
 
 const TextStyle kLoginButtonTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
@@ -23,6 +25,6 @@ const TextStyle kLoginButtonTextStyle = TextStyle(
 
 const TextStyle kLoginLogoTextStyle = TextStyle(
   color: Colors.black,
-  fontSize: 35,
+  fontSize: 30,
   fontWeight: FontWeight.bold,
 );

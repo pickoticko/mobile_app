@@ -3,8 +3,11 @@ import 'package:mobile_app/utilities/constants.dart';
 
 class LoginTextField extends StatelessWidget {
   String? hint;
+  bool secureInput;
+  TextInputType inputType;
 
-  LoginTextField({required this.hint});
+  LoginTextField(
+      {required this.hint, required this.secureInput, required this.inputType});
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +22,12 @@ class LoginTextField extends StatelessWidget {
               ),
             ),
             child: TextField(
+              obscureText: secureInput,
+              keyboardType: inputType,
               cursorColor: Colors.black87,
               decoration: InputDecoration(
-                filled: true,
                 fillColor: kLoginTextFieldFillColor,
+                filled: true,
                 hintText: hint,
                 hintStyle: TextStyle(color: Colors.grey[500]),
                 border: OutlineInputBorder(

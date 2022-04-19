@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/utilities/constants.dart';
 import 'package:mobile_app/widgets/login/login_button.dart';
 import 'package:mobile_app/widgets/login/login_text.dart';
 import 'package:mobile_app/widgets/login/login_text_field.dart';
@@ -11,27 +12,52 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  Color warningColor = Colors.black;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            LoginText(text: 'Welcome!'),
-            SizedBox(height: 20),
-            LoginText(text: 'Login to account'),
-            SizedBox(height: 30),
-            LoginTextField(hint: 'Username'),
-            SizedBox(height: 20),
-            LoginTextField(hint: 'Password'),
-            SizedBox(height: 20),
-            LoginButton(buttonColor: warningColor),
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topRight,
+            colors: [
+              Color(0xfffff3e0),
+              Colors.white,
+            ],
+          ),
+        ),
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints viewportConstraints) {
+            return SafeArea(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: viewportConstraints.maxHeight,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    LoginText(text: 'Welcome!'),
+                    SizedBox(height: 20),
+                    LoginText(text: 'Login to account'),
+                    SizedBox(height: 30),
+                    LoginTextField(
+                        hint: 'IIN',
+                        secureInput: false,
+                        inputType: TextInputType.number),
+                    SizedBox(height: 20),
+                    LoginTextField(
+                        hint: 'Password',
+                        secureInput: true,
+                        inputType: TextInputType.text),
+                    SizedBox(height: 20),
+                    LoginButton(buttonColor: kPrimaryColor),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
